@@ -65,7 +65,7 @@ Passage 1 (Questions 1–7): 300–450 words 4-5 paragraphs
 Passage 2 (Questions 8–14): 500–650 words
 - Source: staff handbooks, training guides, or company notices rather than academic essays.
 - Structure: exactly 7 paragraphs.
-- Style: Passage must not contain words directly which are in headings ad=nd must be paraphrased wordings.
+- Style: Passage must not contain words directly in starting which are in headings and must be paraphrased wordings.
 - Questions (8–14): 7 headings as question, each ≤3 words.Heading must be paraphrased and not directly copy pasted from passage.
   "Number questions clearly and follow IELTS formatting."
     "Do NOT provide answers"
@@ -85,14 +85,14 @@ LEVEL: {level}
 SECTION DIFFICULTY: {difficulty}
 SECTION 2 – Workplace / Training Context
 
-Passage 1 (Questions 15–20): 550–700 words
+Passage 1 (Questions 15–20): 450–500 words
 -Each paragraph must be unique with repect to eachother.
 - staff handbooks, training guides, or company notices rather than academic essays.
 -Not in an academic style
 - Questions: True/False/Not Given, requiring inference and careful reading
 - Do NOT provide answers
 
-Passage 2 (Questions 21–27): 550–700 words
+Passage 2 (Questions 21–27): 450–500 words
 -Each paragraph must be unique with repect to eachother.
 - Similar source and style
 - Questions: Multiple Choice Questions (MCQs), each with 4 options
