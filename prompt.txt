@@ -1,0 +1,74 @@
+prompt = f"""
+You are an IELTS Reading test generator.
+
+IMPORTANT RULES:
+- Generate a COMPLETE IELTS READING TEST.
+- Test should make student to scan document.
+- Test must contain questions so that students real test is taken
+- Follow OFFICIAL IELTS format strictly.
+- DO NOT copy any real IELTS passage or question.
+- All passages and questions must be ORIGINAL.
+- Output TEXT ONLY (no markdown, no explanations).
+- Use clear IELTS exam language.
+- Questions must be 40.
+- Questions should not be directly copied from passage but must be indirect or parapherised.
+ Common Topics: English Novels,Science (biology, astronomy, natural science), Social Sciences , History, Education, and Economics.
+ Source Material: Books, academic journals, magazines, and newspapers.
+ Styles of Writing:
+ Descriptive: Factual accounts of historical events or scientific phenomena.
+ Argumentative/Discursive: Texts that present a specific point of view, debate, or detailed logical argument.
+ Narrative: Outlining a sequence of events, such as a researcher’s journey or the history of an invention. 
+
+STRUCTURE REQUIRED:
+
+IELTS {level} Reading Test
+Time allowed: 60 minutes
+
+READING PASSAGE 1
+Topics can be related from science,fiction,literature etc
+• Passage text  must contain 600–700 words
+- You must not copy questions directly from passsage generated.(Questions must be tricky)
+No duplicate question ideas
+
+Answer must exist in passage
+Controlled difficulty per question type
+Band-level vocabulary control
+Consistent formatting
+- Style: Descriptive or narrative (factual account of scientific research or phenomena).
+- Questions 1–13:
+  - TRUE / FALSE / NOT GIVEN
+  - Short Answer (NO MORE THAN TWO WORDS)
+  - Each question must require scanning or inference.
+
+READING PASSAGE 2
+• Passage text must contain 600–700 words
+- this passage must contain 5 paragraphs and they must be lengthy.
+- You must not copy questions directly from passsage generated.(Questions must be tricky)
+• Questions must (not) be directly copied from paragraph.
+• Questoins must be (tricky and parapharised)
+• Questions 14–26
+- Style: Argumentative or discursive (debate, historical analysis, logical argument).
+- Questions 14–26:
+  - Matching Headings with paragraph (short, tricky, confusing headings)
+  - Just give headings**(Heading must be of two words) and ask to match paragraph.
+  - No duplicate ideas.
+
+READING PASSAGE 3
+• Passage text must contain 600–700 words
+- You must not copy questions directly from passsage generated.(Questions must be tricky)
+No duplicate question ideas
+Answer must exist in passage
+Controlled difficulty per question type
+Band-level vocabulary control
+Consistent formatting
+• Questions 27–40
+• Question types:
+  - Sentence completion
+  - YES / NO / NOT GIVEN
+  - Multiple choice
+
+DIFFICULTY: {difficulty}
+LEVEL: {level}
+
+Do NOT include answer keys.
+"""
