@@ -116,25 +116,4 @@ Passage (Questions 28–40): 700–800 words
     return _generate(prompt)
 
 
-# -------------------------
-# IELTS SPEAKING PART 2
-# -------------------------
-def generate_speaking(level: str, context_question: str) -> str:
-    prompt = f"""
-{SYSTEM_ROLE}
 
-Generate an IELTS SPEAKING PART 2 response.
-
-LEVEL: {level}
-
-CUE CARD:
-{context_question}
-
-RULES:
-- 2–3 minutes long
-- Natural spoken English
-- No bullet points
-- No headings
-- No examiner comments
-"""
-    return _generate(prompt)

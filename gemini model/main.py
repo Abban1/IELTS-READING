@@ -9,8 +9,7 @@ from pymongo import MongoClient
 from utils import (
     generate_section_1,
     generate_section_2,
-    generate_section_3,
-    generate_speaking
+    generate_section_3
 )
 
 load_dotenv()
@@ -75,22 +74,3 @@ def full_test(level: str = "General Training", difficulty: str = "Hard"):
     })
 
     return full_text
-
-
-# ---------- SPEAKING ----------
-@app.get("/generate-speaking", response_class=PlainTextResponse)
-def speaking(
-    level: str = Query("Academic"),
-    context_question: str = Query(...)
-):
-    result = generate_speaking(level, context_question)
-
-    ielts_tests.insert_one({
-        "type": "speaking",
-        "level": level,
-        "question": context_question,
-        "response": result,
-        "created_at": datetime.utcnow()
-    })
-
-    return result
