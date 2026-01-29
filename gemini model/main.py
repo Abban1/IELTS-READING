@@ -6,7 +6,7 @@ import os
 from dotenv import load_dotenv
 from pymongo import MongoClient
 from fastapi import HTTPException
-from fastapi.responses import PlainTextResponse
+
 from utils import (
     generate_section_1,
     generate_section_2,
