@@ -5,13 +5,18 @@ from datetime import datetime
 import os
 from dotenv import load_dotenv
 from pymongo import MongoClient
-
+from fastapi import HTTPException
+from fastapi.responses import PlainTextResponse
 from utils import (
     generate_section_1,
     generate_section_2,
     generate_section_3
 )
-
+section_map = {
+    "section1": generate_section_1,
+    "section2": generate_section_2,
+    "section3": generate_section_3,
+}
 load_dotenv()
 
 client = MongoClient(
@@ -37,40 +42,46 @@ def home():
     return {"message": "IELTS Generator API is running"}
 
 
-# ---------- READING ----------
-@app.get("/section-1", response_class=PlainTextResponse)
-def section_1(level: str = "General Training", difficulty: str = "Easy"):
-    return generate_section_1(level, difficulty)
-
-
-@app.get("/section-2", response_class=PlainTextResponse)
-def section_2(level: str = "General Training", difficulty: str = "Medium"):
-    return generate_section_2(level, difficulty)
-
-
-@app.get("/section-3", response_class=PlainTextResponse)
-def section_3(level: str = "General Training", difficulty: str = "Hard"):
-    return generate_section_3(level, difficulty)
-
 
 @app.get("/full-test", response_class=PlainTextResponse)
-def full_test(level: str = "General Training", difficulty: str = "Hard"):
-    s1 = generate_section_1(level, difficulty)
-    s2 = generate_section_2(level, difficulty)
-    s3 = generate_section_3(level, difficulty)
+def full_test(
+    level: str = "General Training",
+    difficulty: str = "Hard",
+    section: str | None = None
+):
+    try:
+        
+        if section:
+            func = section_map[section.lower()]  
+            return func(level, difficulty)
 
-    full_text = (
-        "IELTS GENERAL TRAINING READING TEST\n"
-        "Time allowed: 60 minutes\n\n"
-        f"{s1}\n\n{'='*60}\n\n{s2}\n\n{'='*60}\n\n{s3}"
-    )
+       
+        s1 = generate_section_1(level, difficulty)
+        s2 = generate_section_2(level, difficulty)
+        s3 = generate_section_3(level, difficulty)
 
-    ielts_tests.insert_one({
-        "type": "reading",
-        "level": level,
-        "difficulty": difficulty,
-        "content": full_text,
-        "created_at": datetime.utcnow()
-    })
+        full_text = (
+            "IELTS GENERAL TRAINING READING TEST\n"
+            "Time allowed: 60 minutes\n\n"
+            f"{s1}\n\n{'='*60}\n\n{s2}\n\n{'='*60}\n\n{s3}"
+        )
 
-    return full_text
+      
+        ielts_tests.insert_one({
+            "type": "reading",
+            "level": level,
+            "difficulty": difficulty,
+            "content": full_text,
+            "created_at": datetime.utcnow()
+        })
+
+        return full_text
+
+    except KeyError:
+        raise HTTPException(status_code=400, detail="Invalid section")
+
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Test generation failed: {str(e)}"
+        )
