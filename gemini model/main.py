@@ -20,9 +20,7 @@ section_map = {
 load_dotenv()
 
 client = MongoClient(
-    os.getenv("MONGODB_URI"),
-    tls=True,
-    tlsAllowInvalidCertificates=True
+    os.getenv("MONGODB_URI")
 )
 
 db = client["ielts_db"]
